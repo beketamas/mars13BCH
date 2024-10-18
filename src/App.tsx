@@ -10,31 +10,31 @@ function App() {
   
   }
 
-const [Megacredit, setMegacreidt] = useState(loadResource("megacredit"))
-const [MegacreditProduction, setMegacreditProduction] = useState(loadResource("mproduction"))
+  const [Megacredit, setMegacreidt] = useState(loadResource("megacredit"))
+  const [MegacreditProduction, setMegacreditProduction] = useState(loadResource("mproduction"))
 
-const [Steel, setSteel] = useState(loadResource("steel"))
-const [SteelProduction, setSteelProduction] = useState(loadResource("sproduction"))
+  const [Steel, setSteel] = useState(loadResource("steel"))
+  const [SteelProduction, setSteelProduction] = useState(loadResource("sproduction"))
 
 
-const handleIncrement=(increment:number, resource:number, 
-  setResource:(value:number)=>void)=>{
+  const handleIncrement=(increment:number, resource:number, 
+    setResource:(value:number)=>void)=>{
     setResource(resource+increment)
-}
+  }
 
 
-useEffect(()=>{
-  localStorage.setItem("megacredit", Megacredit.toString());
-  localStorage.setItem("steel", Steel.toString());
-  localStorage.setItem("mproduction", MegacreditProduction.toString())
-  localStorage.setItem("sproduction", SteelProduction.toString())
-},[Megacredit,Steel, MegacreditProduction, SteelProduction]);
+  useEffect(()=>{
+    localStorage.setItem("megacredit", Megacredit.toString());
+    localStorage.setItem("steel", Steel.toString());
+    localStorage.setItem("mproduction", MegacreditProduction.toString())
+    localStorage.setItem("sproduction", SteelProduction.toString())
+  },[Megacredit,Steel, MegacreditProduction, SteelProduction]);
 
-const handlSubmit2=(e:FormEvent)=>{
+  const handlSubmit2=(e:FormEvent)=>{
     e.preventDefault()
     setMegacreidt(Megacredit+MegacreditProduction)
     setSteel(Steel+SteelProduction);
-}
+  }
 
   return (
     <form onSubmit={handlSubmit2} className="container">
